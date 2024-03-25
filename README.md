@@ -197,7 +197,7 @@ git clone https://github.com/Benefrancis/spring-pj-chamados-tecnicos && cd sprin
 ```
 
 
-A avaliação é em dupla.
+A atividade é em **DUPLA**, não se esqueça de colocar o nome dos integrantes no arquivo contido em documentacao/equipe.txt. Em caso de fraude de qualquer tipo, todos os envolvidos receberão nota ZERO.
 
 
 Boa avaliação.
