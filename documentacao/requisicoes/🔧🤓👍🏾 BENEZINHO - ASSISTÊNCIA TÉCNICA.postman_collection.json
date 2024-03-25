@@ -1,0 +1,384 @@
+{
+	"info": {
+		"_postman_id": "19accfc7-d154-4876-92c7-757095a06ac9",
+		"name": "🔧🤓👍🏾 BENEZINHO - ASSISTÊNCIA TÉCNICA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1524675"
+	},
+	"item": [
+		{
+			"name": "001 - Especialidade",
+			"item": [
+				{
+					"name": "localhost/especialidade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Carpintaria\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/especialidade",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"especialidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/especialidade",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/especialidade",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"especialidade"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "002 - TECNICO",
+			"item": [
+				{
+					"name": "localhost/tecnico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Benefrancis\",\r\n    \"especialidade\": [\r\n        {\r\n            \"nome\": \"Tecnologia da Informação\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/tecnico",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tecnico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/tecnico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/tecnico",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tecnico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logalhost/tecnico/{id}/especialidade ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n  \"nome\": \"Matemática Financeira\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/tecnico/1/especialidade",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"tecnico",
+								"1",
+								"especialidade"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "003 - SOLICITANTE",
+			"item": [
+				{
+					"name": "localhost/solicitante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Benefrancis\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/solicitante",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"solicitante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/solicitante/1/telefone",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"ddi\": \"55\",\r\n    \"ddd\": \"11\",\r\n    \"numero\": \"982802526\",\r\n    \"solicitante\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/solicitante/1/telefone",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"solicitante",
+								"1",
+								"telefone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/solicitante/1/endereco",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n  \"cep\": \"06086-120\",\r\n  \"numero\": \"505\",\r\n  \"complemento\": \"AP 81-A\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/solicitante/1/endereco",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"solicitante",
+								"1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/solicitante",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/solicitante",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"solicitante"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/solicitante/1/telefone",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/solicitante/1/telefone",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"solicitante",
+								"1",
+								"telefone"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/solicitante/1/endereco",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/solicitante/1/endereco",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"solicitante",
+								"1",
+								"endereco"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "004 - CHAMADO",
+			"item": [
+				{
+					"name": "localhost/chamado",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Socorro Popeye\",\r\n    \"descricao\": \"O Brutus está me atancado!!\",\r\n    \"dataAbertura\": \"2024-03-24T00:41:01\",\r\n    \"dataEncerramento\": \"\",\r\n    \"dataPrimeiroAtendimento\": \"\",\r\n    \"solicitante\": {\r\n        \"id\": 1\r\n    },\r\n    \"especialidade\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/chamado",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"chamado"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/chamado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/chamado",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"chamado"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "005 - OCORRENCIA",
+			"item": [
+				{
+					"name": "localhost/ocorrencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"Esqueci da descrição de Teste\",\r\n    \"data\": \"2024-03-24T23:10:01\",\r\n    \"chamado\": {\r\n        \"id\": 1\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost/ocorrencia",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ocorrencia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "localhost/ocorrencia",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost/ocorrencia",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"ocorrencia"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
