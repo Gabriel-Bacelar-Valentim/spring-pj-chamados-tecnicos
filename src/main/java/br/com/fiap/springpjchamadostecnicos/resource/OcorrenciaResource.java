@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -37,10 +38,11 @@ public class OcorrenciaResource {
     public Ocorrencia save(@RequestBody Ocorrencia ocorrencia) {
         if (Objects.isNull(ocorrencia)) return null;
         ocorrencia.setId(null);
-        if(Objects.isNull(ocorrencia.getChamado().getId())) return null;
+        if (Objects.isNull(ocorrencia.getChamado().getId())) return null;
         var chamado = chamadoRepository.findById(ocorrencia.getChamado().getId()).orElseThrow();
         ocorrencia.setChamado(chamado);
-       return repo.save(ocorrencia);
+        ocorrencia.setData(LocalDateTime.now());
+        return repo.save(ocorrencia);
     }
 
 
