@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
@@ -48,7 +49,6 @@ public class ChamadoResource {
             var especialidade = especialidadeRepository.findById(
                     chamado.getEspecialidade().getId()
             ).orElseThrow();
-
             chamado.setEspecialidade(especialidade);
         }
 
@@ -60,9 +60,10 @@ public class ChamadoResource {
             ).orElseThrow();
             chamado.setSolicitante(solicitante);
         }
-
+        chamado.setDataPrimeiroAtendimento(null);
+        chamado.setDataEncerramento(null);
+        chamado.setDataAbertura(LocalDateTime.now());
         return repo.save(chamado);
-
     }
 
 }
