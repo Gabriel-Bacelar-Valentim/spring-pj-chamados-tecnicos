@@ -52,6 +52,7 @@ public class TecnicoResource {
             especialidade = especialidadeRepository.findById(especialidade.getId()).orElseThrow();
         }
         tecnico.getEspecialidades().add(especialidade);
+
         return tecnico;
 
     }
