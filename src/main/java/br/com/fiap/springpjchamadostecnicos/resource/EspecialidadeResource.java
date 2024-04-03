@@ -1,8 +1,11 @@
 package br.com.fiap.springpjchamadostecnicos.resource;
 
 
+import br.com.fiap.springpjchamadostecnicos.dto.request.EspecialidadeRequest;
+import br.com.fiap.springpjchamadostecnicos.dto.response.EspecialidadeResponse;
 import br.com.fiap.springpjchamadostecnicos.entity.Especialidade;
 import br.com.fiap.springpjchamadostecnicos.repository.EspecialidadeRepository;
+import br.com.fiap.springpjchamadostecnicos.service.EspecialidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -14,23 +17,23 @@ import java.util.List;
 public class EspecialidadeResource {
 
     @Autowired
-    private EspecialidadeRepository repo;
+    private EspecialidadeService service;
 
     @GetMapping
-    public List<Especialidade> findAll() {
-        return repo.findAll();
+    public List<EspecialidadeResponse> findAll() {
+        return service.findAll().stream().map(service::toResponse).toList();
     }
 
     @GetMapping(value = "/{id}")
-    public Especialidade findById(@PathVariable Long id) {
-        return repo.findById(id).orElseThrow();
+    public EspecialidadeResponse findById(@PathVariable Long id) {
+        return service.toResponse(service.findById(id));
     }
 
     @Transactional
     @PostMapping
-    public Especialidade save(@RequestBody Especialidade especialidade) {
-        especialidade.setId(null);
-        return repo.save(especialidade);
+    public EspecialidadeResponse save(@RequestBody EspecialidadeRequest especialidade) {
+        var entity = service.toEntity(especialidade);
+        return service.toResponse(service.save(entity));
     }
 
 

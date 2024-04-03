@@ -1,5 +1,6 @@
 package br.com.fiap.springpjchamadostecnicos.service;
 
+import br.com.fiap.springpjchamadostecnicos.dto.request.AbstractRequest;
 import br.com.fiap.springpjchamadostecnicos.dto.request.ChamadoRequest;
 import br.com.fiap.springpjchamadostecnicos.dto.response.ChamadoResponse;
 import br.com.fiap.springpjchamadostecnicos.entity.Chamado;
@@ -8,11 +9,14 @@ import br.com.fiap.springpjchamadostecnicos.repository.ChamadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 
 @Service
-public class ChamadoService {
+public class ChamadoService implements ServiceDTO<Chamado, ChamadoRequest, ChamadoResponse, AbstractRequest> {
 
     @Autowired
     EspecialidadeService especialidadeService;
@@ -40,6 +44,7 @@ public class ChamadoService {
         );
     }
 
+
     public Chamado toEntity(ChamadoRequest request) {
 
         Especialidade especialidade = especialidadeService.findById(request.especialidade().id());
@@ -56,6 +61,19 @@ public class ChamadoService {
 
     public Chamado findById(Long id) {
         return repo.findById(id).orElse(null);
+    }
+
+    @Override
+    public Chamado findByAbstractRequest(AbstractRequest a) {
+        if (Objects.isNull(a)) return null;
+        return repo.findById(a.id()).orElse(null);
+    }
+
+    @Override
+    public Collection<ChamadoResponse> toResponse(Collection<Chamado> entity) {
+        if (entity.size() > 0)
+            return entity.stream().map(this::toResponse).toList();
+        return new ArrayList<>();
     }
 
     public List<Chamado> findAll() {
