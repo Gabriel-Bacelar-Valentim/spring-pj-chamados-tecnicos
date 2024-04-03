@@ -48,7 +48,7 @@ public class SolicitanteService implements ServiceDTO<Solicitante, SolicitanteRe
 
     @Override
     public Solicitante findByAbstractRequest(AbstractRequest a) {
-        if(Objects.isNull(a)) return null;
+        if (Objects.isNull(a)) return null;
         return repo.findById(a.id()).orElse(null);
     }
 
