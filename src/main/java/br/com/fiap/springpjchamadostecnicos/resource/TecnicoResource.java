@@ -1,13 +1,11 @@
 package br.com.fiap.springpjchamadostecnicos.resource;
 
 import br.com.fiap.springpjchamadostecnicos.dto.request.AbstractRequest;
-import br.com.fiap.springpjchamadostecnicos.dto.request.EspecialidadeRequest;
 import br.com.fiap.springpjchamadostecnicos.dto.request.TecnicoRequest;
 import br.com.fiap.springpjchamadostecnicos.dto.response.TecnicoResponse;
 import br.com.fiap.springpjchamadostecnicos.entity.Especialidade;
 import br.com.fiap.springpjchamadostecnicos.entity.Tecnico;
 import br.com.fiap.springpjchamadostecnicos.repository.EspecialidadeRepository;
-import br.com.fiap.springpjchamadostecnicos.repository.TecnicoRepository;
 import br.com.fiap.springpjchamadostecnicos.service.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

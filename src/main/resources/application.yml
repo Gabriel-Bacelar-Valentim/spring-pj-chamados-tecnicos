@@ -2,4 +2,9 @@ server:
   port: 80
 spring:
   profiles:
-    active: homologacao
+    active: desenvolvimento
+  jpa:
+    open-in-view: false
+
+  thymeleaf:
+    check-template-location: false

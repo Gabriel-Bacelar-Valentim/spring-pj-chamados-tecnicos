@@ -25,7 +25,14 @@ public class TecnicoService implements ServiceDTO<Tecnico, TecnicoRequest, Tecni
 
     @Override
     public TecnicoResponse toResponse(Tecnico t) {
-        return new TecnicoResponse(t.getId(), t.getNome(), especialidadeService.toResponse(t.getEspecialidades()));
+
+
+        return new TecnicoResponse(
+                t.getId(),
+                t.getNome(),
+                especialidadeService.toResponse(t.getEspecialidades()
+                )
+        );
     }
 
     @Override

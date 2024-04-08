@@ -5,6 +5,7 @@ import br.com.fiap.springpjchamadostecnicos.dto.request.EspecialidadeRequest;
 import br.com.fiap.springpjchamadostecnicos.dto.response.EspecialidadeResponse;
 import br.com.fiap.springpjchamadostecnicos.entity.Especialidade;
 import br.com.fiap.springpjchamadostecnicos.repository.EspecialidadeRepository;
+import lombok.NonNull;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,10 +34,8 @@ public class EspecialidadeService implements ServiceDTO<Especialidade, Especiali
     }
 
     @Override
-    public List<EspecialidadeResponse> toResponse(Collection<Especialidade> especialidades) {
-        if(especialidades.size()>0)
+    public List<EspecialidadeResponse> toResponse(@NonNull Collection<Especialidade> especialidades) {
         return especialidades.stream().map(this::toResponse).toList();
-        return new ArrayList<>();
     }
 
     @Override
