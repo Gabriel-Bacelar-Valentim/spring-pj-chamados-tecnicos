@@ -11,6 +11,7 @@ import br.com.fiap.springpjchamadostecnicos.repository.EspecialidadeRepository;
 import br.com.fiap.springpjchamadostecnicos.repository.SolicitanteRepository;
 import br.com.fiap.springpjchamadostecnicos.repository.TecnicoRepository;
 import br.com.fiap.springpjchamadostecnicos.service.ChamadoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +42,7 @@ public class ChamadoResource {
 
     @Transactional
     @PostMapping
-    public ChamadoResponse save(@RequestBody ChamadoRequest chamado) {
+    public ChamadoResponse save(@RequestBody @Valid ChamadoRequest chamado) {
         if (Objects.isNull(chamado)) return null;
         Chamado save = service.save(service.toEntity(chamado));
         return service.toResponse(save);

@@ -7,6 +7,7 @@ import br.com.fiap.springpjchamadostecnicos.entity.Especialidade;
 import br.com.fiap.springpjchamadostecnicos.entity.Tecnico;
 import br.com.fiap.springpjchamadostecnicos.repository.EspecialidadeRepository;
 import br.com.fiap.springpjchamadostecnicos.service.TecnicoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,7 @@ public class TecnicoResource {
 
     @Transactional
     @PostMapping
-    public TecnicoResponse save(@RequestBody TecnicoRequest tecnico) {
+    public TecnicoResponse save(@RequestBody @Valid TecnicoRequest tecnico) {
         if (Objects.isNull(tecnico)) return null;
         var entity = service.toEntity(tecnico);
         var saved = service.save(entity);
@@ -44,7 +45,7 @@ public class TecnicoResource {
 
     @Transactional
     @PostMapping(value = "/{id}/especialidade")
-    public TecnicoResponse save(@PathVariable Long id, @RequestBody AbstractRequest especialidade) {
+    public TecnicoResponse save(@PathVariable Long id, @RequestBody @Valid AbstractRequest especialidade) {
         if (Objects.isNull(especialidade)) return null;
         Tecnico tecnico = service.findById(id);
         Especialidade especialidaeEntity = null;

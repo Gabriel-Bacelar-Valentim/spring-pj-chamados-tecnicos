@@ -4,6 +4,7 @@ import br.com.fiap.springpjchamadostecnicos.entity.Ocorrencia;
 import br.com.fiap.springpjchamadostecnicos.entity.Tecnico;
 import br.com.fiap.springpjchamadostecnicos.repository.ChamadoRepository;
 import br.com.fiap.springpjchamadostecnicos.repository.OcorrenciaRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class OcorrenciaResource {
 
     @PostMapping
     @Transactional
-    public Ocorrencia save(@RequestBody Ocorrencia ocorrencia) {
+    public Ocorrencia save(@RequestBody  @Valid Ocorrencia ocorrencia) {
         if (Objects.isNull(ocorrencia)) return null;
         ocorrencia.setId(null);
         if (Objects.isNull(ocorrencia.getChamado().getId())) return null;

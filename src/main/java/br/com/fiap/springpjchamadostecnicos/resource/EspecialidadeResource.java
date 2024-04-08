@@ -6,10 +6,14 @@ import br.com.fiap.springpjchamadostecnicos.dto.response.EspecialidadeResponse;
 import br.com.fiap.springpjchamadostecnicos.entity.Especialidade;
 import br.com.fiap.springpjchamadostecnicos.repository.EspecialidadeRepository;
 import br.com.fiap.springpjchamadostecnicos.service.EspecialidadeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -31,9 +35,19 @@ public class EspecialidadeResource {
 
     @Transactional
     @PostMapping
-    public EspecialidadeResponse save(@RequestBody EspecialidadeRequest especialidade) {
+    public ResponseEntity<EspecialidadeResponse> save(
+            @RequestBody @Valid EspecialidadeRequest especialidade) {
+
         var entity = service.toEntity(especialidade);
-        return service.toResponse(service.save(entity));
+        var saved = service.save(entity);
+        var response = service.toResponse(saved);
+
+        URI uri = ServletUriComponentsBuilder
+                .fromCurrentRequest()
+                .path("/{id}")
+                .buildAndExpand(saved.getId())
+                .toUri();
+        return ResponseEntity.created(uri).body(response);
     }
 
 
